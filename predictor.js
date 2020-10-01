@@ -1,5 +1,40 @@
 "use strict"
 
+let closeness={};
+
+function closenessSet(category,rank) {
+    for (const rankclosing in a[category]) {
+        if (a[category].hasOwnProperty(rankclosing)) {
+            const element = a[category][rankclosing];
+            let color 
+            if(rank<+rankclosing){color='color:green'}else{color='color:red'}
+            closeness[Math.abs(rank-rankclosing)]=`<div style=${color}>closing Rank:${rankclosing}  ${element} <div><hr>`
+           
+        }
+    }
+    displayResult()
+}
+function displayResult() {
+	document.getElementById('loading').style.display='none'
+    for (const key in closeness) {
+        if (closeness.hasOwnProperty(key)) {
+            const element = closeness[key];
+            document.getElementById('result').innerHTML+=element
+           
+        }
+    }
+}
+let radioSelected='genewsgenderneutral'
+document.getElementsByName('ctg').forEach((v,i)=>{ v.addEventListener('click',radioClicked)})
+function radioClicked() {radioSelected=this.id;
+   document.getElementById('rnklbl').innerHTML=`Your Category (${(document.querySelector(`[for=${radioSelected}]`)).innerText}) Rank : `
+}
+function see() {
+	document.getElementById('loading').display='block';
+	let rankInput=document.getElementById('rankInput').value
+    if(!rankInput){rankInput=+prompt('please enter your Rank to continue');};
+    if(rankInput){closenessSet(radioSelected,rankInput)}
+} 
 let a={
 	"obcnclgenderneutral": {
 	  "37": "College:\tIndian Institute  of Technology Bombay\t<br>Branch:\tComputer Science and Engineering (4 Years, Bachelor of Technology)\t<br>quota:\tAI\t<br>Opening Rank:\t7\t",
@@ -5941,38 +5976,3 @@ let a={
 	},
 	"stfemaleonly": {}
   }
-let closeness={};
-
-function closenessSet(category,rank) {
-    for (const rankclosing in a[category]) {
-        if (a[category].hasOwnProperty(rankclosing)) {
-            const element = a[category][rankclosing];
-            let color 
-            if(rank<+rankclosing){color='color:green'}else{color='color:red'}
-            closeness[Math.abs(rank-rankclosing)]=`<div style=${color}>closing Rank:${rankclosing}  ${element} <div><hr>`
-           
-        }
-    }
-    displayResult()
-}
-function displayResult() {
-	document.getElementById('loading').style.display='none'
-    for (const key in closeness) {
-        if (closeness.hasOwnProperty(key)) {
-            const element = closeness[key];
-            document.getElementById('result').innerHTML+=element
-           
-        }
-    }
-}
-let radioSelected='genewsgenderneutral'
-document.getElementsByName('ctg').forEach((v,i)=>{ v.addEventListener('click',radioClicked)})
-function radioClicked() {radioSelected=this.id;
-   document.getElementById('rnklbl').innerHTML=`Your Category (${(document.querySelector(`[for=${radioSelected}]`)).innerText}) Rank : `
-}
-function see() {
-	document.getElementById('loading').display='block';
-	let rankInput=document.getElementById('rankInput').value
-    if(!rankInput){rankInput=+prompt('please enter your Rank to continue');};
-    if(rankInput){closenessSet(radioSelected,rankInput)}
-}
