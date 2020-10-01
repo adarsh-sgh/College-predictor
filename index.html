@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Predictor</title>
+</head>
+<body><pre>
+<input type="radio" id="opengenderneutral" name="ctg" checked='true'><label for="opengenderneutral">Open Gender-Neutral     </label>    <input type="radio" id="openfemaleonly" name="ctg"><label for="openfemaleonly">Open Female-only</label>    <br>
+<input type="radio" id="genewsgenderneutral" name="ctg"><label for="genewsgenderneutral">E.W.S Gender-Neutral    </label>    <input type="radio" id="genewsfemaleonly" name="ctg"><label for="genewsfemaleonly"> E.W.S.Female-only</label><br>
+<input type="radio" id="obcnclgenderneutral" name="ctg"><label for="obcnclgenderneutral"> OBC(ncl) Gender-Neutral</label>    <input type="radio" id="obcnclfemaleonly" name="ctg"><label for="obcnclfemaleonly"> OBC(ncl) Female-only</label><br>
+<input type="radio" id="scgenderneutral" name="ctg"><label for="scgenderneutral">Sc Gender-Neutral       </label>    <input type="radio" id="scfemaleonly" name="ctg"><label for="scfemaleonly"> SC Female-only</label><br>
+<input type="radio" id="stgenderneutral" name="ctg"><label for="stgenderneutral">ST Gender-Neutral       </label>    <input type="radio" id="stfemaleonly" name="ctg"><label for="stfemaleonly">ST Female-only</label><br>
+<input type="radio" id="openpwd" name="ctg"><label for="openpwd"> open pwd               </label>    <input type="radio" id="obcnclpwd" name="ctg"><label for="obcnclpwd">obc-ncl pwd</label><br></pre>
+<label for="rankInput" id="rnklbl">your all india rank : </label><input type="number" name="rank" id="rankInput" ><button onclick="see()">See College-Course List</button>
+    <div id='loading' style="display: none;">Loading ⏳</div>
+    <p id="result"></p>
+    <script src="predictor.js"></script>
+</body>
+</html>
